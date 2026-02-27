@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #head {
+            white-space-collapse: preserve;
+        }
+    </style>
+    <script>
+        "use strict"
+        let count = 0;
+        function moveright() {
+            const ele = document.getElementById("head");
+            ele.innerText = "  " + ele.textContent;
+        }
+        const interval = setInterval(moveright, 100);
+        setTimeout(() => clearInterval(interval), 8600);
+
+        function moveDown() {
+            const ele = document.getElementById("head");
+            ele.innerText = "\n" + ele.innerText;
+        }
+        let interval2;
+        setTimeout(() => { interval2 = setInterval(moveDown, 100) }, 8801);
+        setTimeout(() => clearInterval(interval2), 10510);
+
+        function moveleft() {
+            const ele = document.getElementById("head");
+            let stringCount = ele.innerText.length;
+            let output = ele.innerText;
+            ele.innerText = output.slice(0, stringCount - 11) + output.slice(stringCount - 10, stringCount + 1);
+
+        }
+        let interval3;
+        setTimeout(() => { interval3 = setInterval(moveleft, 100) }, 11000);
+        setTimeout(() => clearInterval(interval3), 30000);
+
+    </script>
+</head>
+
+<body>
+    <h1 id="head">javaScript</h1>
+</body>
+
+</html>

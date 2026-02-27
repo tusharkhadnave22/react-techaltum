@@ -4,38 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #show {
+    white-space: pre;
+}
+    </style>
     <script>
-        "use strict"
-        /*
-        i can do it by next line move by one space bar
-        what is fucntion in react for next line
-        what is fuction for move i know by back tic
-        but for this i need to calculate the space i have horizontally
-        */
-        let spacecounter = 0;
-        function moveNextLine(){
-            //first take the content
-             const element = document.getElementById("show");
-             //take content in variable
-             const content = element.textContent;
-             spacecounter = spacecounter+content.length;
-             //show the variable first place is covert by h1 now we need to move to next line
-             const nextLine = "_\n"+ ' '.repeat(spacecounter) + "_";
-             //now i have to add space lenth of current variable
-            // const nextLine2 = "_\n" + content;
+    "use strict"
+    let fix_space="          ";
+    let originalContent="";
 
-            //  const space = `_________${content}`;
-             element.innerText = nextLine;                     
-        }
-        setInterval(moveNextLine,1000);
+    function extractOriginalContent(){
+        originalContent = document.getElementById("show").innerText;
+    }
+
+    function movenextLine3(){
+        
+        let ele = document.getElementById("show");
+        ele.innerText =ele.innerText+"\n"+fix_space+ originalContent;
+        fix_space +="          ";  
+    }
+    
+    setTimeout(extractOriginalContent,1);
+    let intervalid =  setInterval(movenextLine3,1000);
+    setTimeout(()=>clearInterval(intervalid),17000);
+
     </script>
 </head>
 <body>
-    <h1 id ="show">
-        JavaScript
-    </h1>
-    <div onload="moveNextLine">
-
-    </div>
+    <h1  id ="show" >javaScript</h1>
+ 
 </body>
 </html>
+       
