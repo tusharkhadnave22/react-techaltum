@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #head {
+            text-align: center;
+            color: red;
+        }
+        #button1{
+text-align: center;
+        }
+        #button2{
+          text-align  : center;
+        }
+    </style>
+   
+</head>
+<body>
+    <h1 id="head">Are you happy with your salary</h1>
+    <div id="button1">
+        <button>satisfied with salary</button>
+    </div>
+    <div id="button2">
+        <button>Not satisfied with salary</button>
+    </div>
+
+     <script>
+        "use strict";
+        const button1 = document.getElementById("button1");
+        const button2 = document.getElementById("button2");
+
+        button1.addEventListener("click",salaryAlert);
+        button2.addEventListener("click",decide);
+        function salaryAlert(){
+            alert("kudoes to you");
+        }
+        let count=0;
+        function decide(){
+            if(count%2===0){
+                sadSalaryMoveLeft();
+            }
+            else{
+                sadSalaryMoveRight();
+            }
+            count++;
+        }
+         function sadSalaryMoveRight(){
+            button2.style.textAlign ="right";
+             alert("try to be happy");
+        }
+        function sadSalaryMoveLeft(){
+            button2.style.textAlign ="left";
+             alert("try to be happy");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #move {
+            background-color: red;
+            color: black;
+            position: absolute;
+        }
+    </style>
+    <script>
+        "use strict"
+        let x = 0;
+        let y = 0;
+        let z = 0;
+        let timerR, timerT, timerL,timerU;
+
+        function moveRight() {
+            x += 100;
+            document.title = x;
+            document.getElementById("move").style.left = x + "px";
+            if (x > 1700) {
+                clearInterval(timerR);
+            }
+        }
+        timerR = setInterval(moveRight, 250);
+        function moveBelow() {
+            y += 100;
+            document.title = y;
+            document.getElementById("move").style.top = y + "px";
+            if (y > 750) {
+                clearInterval(timerT);
+            }
+        }
+        setTimeout(() => timerT = setInterval(moveBelow, 250), 5000);
+
+        function moveLeft() {
+            x -= 100;
+            if (x <= 0) {
+                clearInterval(timerL);
+            }
+            document.title = x;
+            document.getElementById("move").style.left = x + "px";
+
+        }
+        setTimeout(() => timerL = setInterval(moveLeft, 250), 9000);
+
+        function moveUp() {
+            y -= 100;
+            document.title = y;
+            document.getElementById("move").style.top = y + "px";
+            if (y <=0) {
+                clearInterval(timerU);
+            }
+        }
+        setTimeout(() => timerU = setInterval(moveUp, 250), 15000);
+
+
+    </script>
+</head>
+
+<body>
+    <div onload="moveLeft" id="move">
+        JavaScript
+    </div>
+</body>
+
+</html>

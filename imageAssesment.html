@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        let count = 0;
+
+        function ima() {
+            const ele = document.getElementById("photu");
+            let arr = ["18-nov/car.webp", "18-nov/car2.webp", "18-nov/car3.webp", "18-nov/car4.webp"];
+            console.log(count);
+            ele.src = arr[count++];
+       
+        }
+        let inter = setInterval(ima, 500);
+        setTimeout(() => clearInterval(inter), 2501);
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <img id="photu" src="18-nov/car5.jpg" >
+    <h1>bye</h1>
+</body>
+
+</html>

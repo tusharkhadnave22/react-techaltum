@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myform {
+            text-align: center;
+        }
+
+        #tb {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center">Enter any number</h1>
+    <form id="myform">
+        <label for="userName">Enter number here :</label>
+        <input type="number" id="username" name="number" placeholder="Your Number here" required>
+        <button type="button" id="button">Get Details</button>
+    </form>
+    <table id="tb" border="1">
+        <thead>
+            <tr>
+                <th>components</th>
+                <th>values</th>
+            </tr>
+
+        </thead>
+        <tbody id="body">
+
+        </tbody>
+    </table>
+
+    <script>
+        "use strict";
+        const eleClick = document.getElementById("button");
+        eleClick.addEventListener("click", calculate);
+        function calculate() {
+            const ele = document.getElementById("username");
+            console.log("input : " + ele.value)
+            let number = ele.value;
+            console.log("1 : " + number);
+            const one = even(number);
+            console.log("2 : " + number);
+
+            const two = odd(number);
+            console.log("2 : " + number);
+
+            const three = prime(number);
+            console.log("3 : " + number);
+
+            const four = sumOfDigits(number);
+            console.log("4 : " + number);
+
+            const five = reverse(number);
+            console.log("5 : " + number);
+
+            const six = pallimdrome(number);
+            console.log("6 : " + number);
+
+            // const seven=;
+            const data = {
+                even: one,
+                odd: two,
+                prime: three,
+                sumOfNumber: four,
+                reverse: five,
+                pallimdrome: six,
+                numberOfDigits: number.length
+            }
+            const bodyEle = document.getElementById("body");
+            let allString = "";
+            for (let key in data) {
+                //we need to write some html over here 
+                let htmlString = `<tr><td>${key}</td><td>${data[key]}</td></tr>`
+                allString += htmlString;
+            }
+            bodyEle.innerHTML = allString;
+
+        }
+        function even(number) {
+            if (number % 2 === 0) {
+                return true
+            }
+            return false;
+        }
+        function odd(number) {
+            if (number % 2 !== 0) {
+                return true
+            }
+            return false;
+        }
+        function prime(number) {
+            //natural number greater than one and divisible by one and itself
+            //we can iterate and cehck if count is greater than 2 then not prime
+            let count = 0;
+            for (let i = 1; i <= number; i++) {
+                if (number % i === 0) {
+                    count++;
+                    if (count > 2) {
+                        return false;
+                    }
+                }
+            }
+            if (count <= 2) {
+                return true;
+            }
+            return false;
+        }
+
+        function sumOfDigits(number) {
+            console.log(number);
+            console.log(typeof (number));
+            let length = number.length;
+            console.log(length);
+            let sum = 0;
+            for (let i = 0; i < length; i++) {
+                sum += Number(number[i]);
+            }
+            return sum;
+        }
+
+        function reverse(number) {
+            // let number = num;
+            let num = number.split("");
+            console.log("----r1");
+            let length = num.length;
+            console.log("----r2");
+
+            if (length <= 1) {
+                return num;
+            }
+            //even length%2 time traversal
+            //right!<= left
+            for (let i = 0; i < length; i++) {
+                if (i < (length - i)) {
+                    console.log("----r3 type of number :"+ typeof(num));
+                    let temp = num[i];
+                    num[i] = num[length - i];
+                    num[length - i]=temp;
+                    console.log("----r4");
+
+                }
+                else {
+                    break;
+                }
+            }
+            return num.join("");
+        }
+
+        function pallimdrome(number) {
+            console.log(`pallindrome: ${number}`)
+            let reveresedNumber = reverse(number);
+            if (number == reveresedNumber) {
+                return true;
+            }
+            return false;
+        }
+    </script>
+</body>
+
+</html>

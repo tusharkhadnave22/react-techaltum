@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #content {
+        background-color: green;
+        color: white;
+        width: 70px;
+        top: 0px;
+        left: 0px;
+        position: absolute;
+    }
+</style>
+
+<body>
+    <div onload="move" id="content">
+        JavaScript
+    </div>
+    <script>
+        "use strict"
+        let x, y, tmr;
+        x = 0;
+        y = 0;
+        function move() {
+            x += 50;
+            y += 25;
+            document.title = "x = " + x + "  y=" + y;
+            document.getElementById("content").style.left = x + "px";
+            document.getElementById("content").style.top = y + "px";
+            if (x > 1700) {
+                clearInterval(tmr);
+            }
+        }
+        tmr = setInterval(move, 250);
+
+    </script>
+</body>
+
+</html>
