@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #img {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+</style>
+<script>
+    let x = 0;
+    let y = 0;
+
+    const ele = document.addEventListener("keydown",function(e){
+        console.log(e)
+       if(event.key === "ArrowDown") {arrowDown()};
+         if(event.key === "ArrowUp") { arrowUp()};
+           if(event.key === "ArrowLeft") {arrowLeft()};
+             if(event.key === "ArrowRight") {arrowRight()};
+    });
+ 
+
+    function arrowDown() {
+        let ele = document.getElementById("img");
+        y += 50;
+        ele.style.top = y+"px";
+    }
+    function arrowUp() {
+        let ele = document.getElementById("img");
+        y -= 50;
+        ele.style.top = y+"px";
+    }
+    function arrowLeft() {
+        let ele = document.getElementById("img");
+        x -= 50;
+        ele.style.left = x+"px";
+    }
+    function arrowRight() {
+        let ele = document.getElementById("img");
+        x += 50;
+        ele.style.left = x+"px";
+    }
+
+</script>
+
+<body>
+
+    <div id="img" onload="move" >
+        <img src="/image.png">
+    </div>
+</body>
+
+</html>
+<!-- /*
+    take image and place it in between the page 
+    and then apply the approw functions to it
+
+    we need to take the input form the keyboard 
+    store that input 
+    and then add it to metod 
+    and need to call that method 
+    */ -->

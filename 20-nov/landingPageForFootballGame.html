@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #login{
+     left: 900px;
+     top:500px;
+     position: absolute;
+    }
+</style>
+<script>
+
+    document.addEventListener("DOMContentLoaded",function(){
+        redirect();
+    });
+    function redirect(){
+        let ele = document.getElementById("login");
+        ele.addEventListener("click",function(e){
+            console.log("point 1")
+             window.location.href = 'ballGame.html';
+        });
+    }
+</script>
+<body>
+    <div onload="redirect" id="login">
+       <button>play football</button>
+    </div>
+</body>
+</html>

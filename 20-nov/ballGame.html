@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #football {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+
+        }
+
+        #container {
+            position: absolute;
+            left: 900px;
+            top: 600px;
+        }
+
+        #score {
+            position: absolute;
+            left: 1750px;
+            top: 10px;
+            font-size: xx-large;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>click On the ball to play</h1>
+    <div id="container">
+        <img src="/football.png" id="football">
+    </div>
+    <div>
+        <ul>
+            <ui id="score">Score: 0</ui>
+        </ul>
+    </div>
+    <!-- how to stat
+    playing with the ball 
+    we need to - each time when click lets say 10 px
+    but there must be one function which will be called with the click event one is up
+    and another one is down
+    let break down first develop the functionality of going up 7.15
+
+    -->
+    <script>
+        let ele = document.getElementById("football");
+        ele.addEventListener("click", function (e) {
+            up();
+        });
+
+        // ele.addEventListener("keydown", function (e) {
+        //     up();
+        // });
+
+        console.log("point 1");
+        const y = ele.getBoundingClientRect().top;
+        let x = 0;
+        function up() {
+
+            let ele = document.getElementById("container");
+            // ele.getBoundingClientRect().y;
+            // console.log("called up " + y)
+            // console.log("called up " + typeof(y));
+            x += 5;
+            console.log(parseInt(ele.getBoundingClientRect().top - x));
+            ele.style.top = (parseInt(ele.getBoundingClientRect().top - x)) + "px";
+            down();
+
+        }
+
+          function down() {
+
+            let ele = document.getElementById("container");
+        //   call function up and if the ball is at the count set before then stop
+            console.log("down called = "+parseInt(ele.getBoundingClientRect().bottom + x));
+            ele.style.top = (parseInt(ele.getBoundingClientRect().top) +5) + "px";
+          
+            if(!(ele.getBoundingClientRect().top<=y)){
+                console.log("down called again")
+              setTimeout(()=>  down(),1000);
+            } 
+        }
+    </script>
+</body>
+
+</html>
