@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict"
+        let arr = [1, 2, 3, 4, 5, 6];
+        arr.map((n) => console.log(n));
+        let filterelement = arr.filter((n) => { return n > 3 });
+        console.log("filter element = " + filterelement);
+        arr.splice(3, 1)
+        console.log("using splice " + arr);
+        arr.push(10);
+        console.log("using push " + arr);
+         arr.pop(1);
+        console.log("using pop " + arr);
+        console.log(arr.slice(0,3));
+        console.log("using slice " + arr);
+
+    </script>
+</body>
+
+</html>
